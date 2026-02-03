@@ -1,11 +1,13 @@
-id,word,pos,definition,image,audio,video
-1,hello,n,A phrase used for greeting someone.,./res/hello.png,./res/hello.wav,
-2,world,n,"The earth, together with all of its countries and peoples.",,./res/world.wav,
-3,multimedia,adj,Using more than one medium of expression.,,./res/multimedia.wav,./res/multimedia.mp4
-4,computer,n,An electronic device for storing and processing data.,,,
-5,programming,n,The process of writing computer programs.,,,
-6,language,n,The method of human communication.,,,
-7,education,n,The process of receiving or giving systematic instruction.,,,
-8,instructor,n,A person who teaches something.,,,
-9,student,n,A person who is studying at a school or college.,,,
-10,university,n,An educational institution for higher learning.,,,
+Term,Info,IPA,Meaning,Example,Type,Image,ImageWidth,ImageHeight
+Hat-trick,帽子戲法  Noun,/ˈhæt ˌtrɪk/,One player scoring three goals in a single match,"Erling Haaland scored a perfect hat-trick in the derby.",,res/image-1770111083941.png,12cm,8cm
+Clean sheet,零封/完封.  Noun,/kliːn ʃiːt/,When a team concedes no goals in a match,"The goalkeeper earned his 15th clean sheet of the season.",,,,
+Nutmeg,穿襠/插花腳. Noun/Verb,/ˈnʌtmeɡ/,Passing the ball through an opponent's legs,"The winger nutmegged the defender before crossing.",,res/image-1770109451569.png,5cm,5cm,
+Top bins,死角進球. Noun (slang),/tɒp bɪnz/,Shooting into the top corner of the goal,"What a strike! Right into the top bins!",,,,
+Overlap,疊瓦式跑位/套邊插上. Noun/Verb,/ˌəʊvəˈlæp/,A full-back running past their own winger to create width,"The right-back made an overlapping run to deliver the cross.",,,,
+Dribble,盤帶/帶球過人 Verb,/ˈdrɪbəl/,Moving with the ball while controlling it with your feet,"Messi can dribble past three defenders effortlessly.",,,,
+Volley,凌空抽射/半空波. Noun/Verb,/ˈvɒli/,Striking the ball in mid-air before it touches the ground,"Zidane's left-footed volley won the Champions League final.",,,,
+Offside,越位 Adjective/Noun,/ˌɒfˈsaɪd/,Positional rule: attacker nearer to goal than ball & second-last defender when ball is played,"The goal was disallowed for a marginal offside call.",,res/image-1770109730538.png,8cm,5cm,
+Formation. 陣型/陣式,  Noun,/fɔːˈmeɪʃən/,The tactical arrangement of players on the pitch,"The manager changed to a 4-3-3 formation for more attack.",,res/image-1770109960718.png,12cm,8cm,
+Clear,解圍/清球  Verb,/klɪər/,Kicking the ball away from your own defensive area,"The defender cleared the ball desperately off the line.",,,,
+Possession, 控球率/控球時間.  Noun,/pəˈzeʃən/,The percentage of time a team controls the ball,"Manchester City had 72% possession but lost 1-0.",,res/image-1770110103728.png,12cm,8cm,
+Tiki-taka,傳控足球.  Noun,/ˈtɪki ˈtækə/,A style of play based on short, quick passing and movement,"Spain's 2010 team perfected tiki-taka football.",,res/tiki taka.png,12cm,8cm

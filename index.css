@@ -280,6 +280,7 @@ main {
 /* Styles for the front side of the card. */
 .card-front {
 	color: #11222d;
+	flex-direction: column;
 	/* Additional styles here (e.g., background-color: #bbccdd;) */
 }
 
@@ -287,14 +288,18 @@ main {
 
 #card-front-word {
 	font-size: 200%;
+	color: red;
+}
+
+#card-front-definition {
+	color: blue;
 }
 
 /* Styles for the back side of the card. */
 .card-back {
 	transform: rotateY(180deg);
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
+	display: flex; /* Changed from grid to flex for simpler centering */
+	flex-direction: column;
 	gap: 0.5rem;
 	/* Additional styles here (e.g., background-color: #bbddcc;) */
 }
@@ -312,6 +317,7 @@ main {
 #card-back-image {
 	grid-column: 2 / 3;
 	grid-row: 1 / 2;
+	object-fit: cover;
 }
 
 #card-back-audio {

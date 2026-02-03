@@ -1,7 +1,20 @@
 import { csvParse, autoType } from "https://cdn.jsdelivr.net/npm/d3-dsv/+esm";
 
 const response = await fetch("./data/example.csv");
-const dataset = csvParse(await response.text(), autoType);
+const rawData = csvParse(await response.text(), autoType);
+
+// Map the CSV data to the format expected by the app
+const dataset = rawData.map(d => ({
+	id: d.Term, // Use Term as ID
+	word: d.Term,
+	phonetic: d.IPA,
+	pos: d.Info,
+	definition: d.Meaning,
+	example: d.Example,
+	image: d.Image,
+	imageWidth: d.ImageWidth,
+	imageHeight: d.ImageHeight,
+}));
 
 /** Loads flashcard progress from local storage if available. */
 function loadProgress() {
@@ -97,14 +110,15 @@ function renderCard() {
 	// Update the front side with the current card's word
 	const currentCard = cards[currentIndex];
 	document.getElementById("card-front-word").textContent = currentCard.word;
+	document.getElementById("card-front-definition").textContent = currentCard.definition;
 
 	// Wait for the back side to become invisible before updating the content on the back side
 	setTimeout(() => {
 		document.getElementById("card-back-pos").textContent = posMapping[currentCard.pos] ?? currentCard.pos;
-		document.getElementById("card-back-definition").textContent = currentCard.definition;
-		document.getElementById("card-back-image").src = currentCard.image;
-		document.getElementById("card-back-audio").src = currentCard.audio;
-		document.getElementById("card-back-video").src = currentCard.video;
+		document.getElementById("card-back-phonetic").textContent = currentCard.phonetic;
+		document.getElementById("card-back-example").textContent = currentCard.example;
+		document.getElementById("card-back-image").src = currentCard.image;		document.getElementById("card-back-image").style.width = currentCard.imageWidth;
+		document.getElementById("card-back-image").style.height = currentCard.imageHeight;
 	}, transitionHalfDuration);
 	// STUDENTS: End of recommended modifications
 

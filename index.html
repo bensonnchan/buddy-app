@@ -11,7 +11,7 @@
 		<!-- This line loads the CSS file containing the styles for the flashcard app. It can be modified to change the appearance of the app. -->
 		<link rel="stylesheet" href="./index.css" />
 	</head>
-	<body>
+	<body> 
 		<main>
 			<!-- The heading includes a button to show/hide all flashcard entries. -->
 			<h1 id="heading">
@@ -40,15 +40,16 @@
 					<!-- Add and rearrange HTML elements inside .card-front and .card-back below. -->
 					<div class="card-face card-front">
 						<h2 id="card-front-word"></h2>
+						<p id="card-front-definition"></p>
+						<img id="card-front-image" />
 					</div>
 					<div class="card-face card-back">
+						<p id="card-back-example"></p>
 						<p>
 							<span id="card-back-pos"></span>
-							<span id="card-back-definition"></span>
+							<span id="card-back-phonetic"></span>
 						</p>
 						<img id="card-back-image" />
-						<audio id="card-back-audio" controls></audio>
-						<video id="card-back-video" controls autoplay loop muted></video>
 						<!-- Remove the above attributes as needed. -->
 					</div>
 					<!-- STUDENTS: End of recommended modifications -->
