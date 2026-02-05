@@ -315,9 +315,25 @@ main {
 }
 
 #card-back-image {
-	grid-column: 2 / 3;
-	grid-row: 1 / 2;
-	object-fit: cover;
+	align-self: center;
+	object-fit: contain;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.card-image-12x8 {
+	width: min(12cm, 100%);
+	height: min(8cm, 100%);
+}
+
+.card-image-8x5 {
+	width: min(8cm, 100%);
+	height: min(5cm, 100%);
+}
+
+.card-image-5x5 {
+	width: min(5cm, 100%);
+	height: min(5cm, 100%);
 }
 
 #card-back-audio {

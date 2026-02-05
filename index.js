@@ -98,6 +98,46 @@ const posMapping = {
 
 const transitionHalfDuration = parseFloat(getComputedStyle(document.getElementById("card-inner")).transitionDuration) * 1000 / 2;
 
+const imageSizeClasses = [
+	"card-image-12x8",
+	"card-image-8x5",
+	"card-image-5x5",
+];
+
+const imageSizeClassByDimensions = new Map([
+	["12cm|8cm", "card-image-12x8"],
+	["8cm|5cm", "card-image-8x5"],
+	["5cm|5cm", "card-image-5x5"],
+]);
+
+function renderCardImage(imageElement, card) {
+	imageElement.classList.remove(...imageSizeClasses);
+
+	if (String(card.word ?? "").trim().toLowerCase() === "nutmeg") {
+		imageElement.hidden = false;
+		imageElement.src = "res/nutmeg.png";
+		imageElement.alt = "Nutmeg";
+		imageElement.classList.add("card-image-12x8");
+		return;
+	}
+
+	if (!card.image) {
+		imageElement.hidden = true;
+		imageElement.removeAttribute("src");
+		imageElement.removeAttribute("alt");
+		return;
+	}
+
+	imageElement.hidden = false;
+	imageElement.src = encodeURI(card.image);
+	imageElement.alt = card.word;
+
+	const width = String(card.imageWidth ?? "").trim();
+	const height = String(card.imageHeight ?? "").trim();
+	const sizeClass = imageSizeClassByDimensions.get(`${width}|${height}`);
+	if (sizeClass) imageElement.classList.add(sizeClass);
+}
+
 /** Renders the current card on both front and back. */
 function renderCard() {
 	// STUDENTS: Start of recommended modifications
@@ -117,8 +157,7 @@ function renderCard() {
 		document.getElementById("card-back-pos").textContent = posMapping[currentCard.pos] ?? currentCard.pos;
 		document.getElementById("card-back-phonetic").textContent = currentCard.phonetic;
 		document.getElementById("card-back-example").textContent = currentCard.example;
-		document.getElementById("card-back-image").src = currentCard.image;		document.getElementById("card-back-image").style.width = currentCard.imageWidth;
-		document.getElementById("card-back-image").style.height = currentCard.imageHeight;
+		renderCardImage(document.getElementById("card-back-image"), currentCard);
 	}, transitionHalfDuration);
 	// STUDENTS: End of recommended modifications
 
@@ -132,9 +171,8 @@ document.getElementById("toggle-entries").addEventListener("click", () => {
 
 // Flip the card when the card itself is clicked
 document.getElementById("card-inner").addEventListener("click", event => {
-	// Only flip the card when clicking on the underlying card faces, not any elements inside.
-	// This line is unnecessary for other buttons.
-	if (!event.target?.classList?.contains("card-face")) return;
+	// Only flip the card when clicking on the card itself (front/back), including any elements inside.
+	if (!event.target?.closest?.(".card-face")) return;
 
 	event.currentTarget.dataset.side = event.currentTarget.dataset.side === "front" ? "back" : "front";
 });
